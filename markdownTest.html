@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html><head>
+<script>
+var content=`
+## Markdown Converter Tests
+
+### Headlines 
+
+Headlines 1 through 3 have been used above /
+
+#### Headline 4
+
+#### Headline 5
+
+#### Headline 6
+
+
+### Line ending with //
+
+line number one /
+line number two /
+line number three /
+
+### Line ending with double space
+
+line number one  
+line number two  
+line number three  
+
+### Paragraphs
+
+This is one paragraph written with three lines broken at One and Ten. (but should appear combined when rendered) One 
+Two Three Four Five Six Seven Eight Nine Ten
+Eleven Twelve Thirteen
+
+This is the next paragraph. One 
+Two Three Four Five Six Seven Eight Nine Ten
+Eleven Twelve Thirteen
+
+### Unordered Lists 
+
+* List item 1
+* list item 2
+** list item 2.1
+** list item 2.2
+*** list item 2.2.1
+*** list item 2.2.2
+* list item 3
+
+* List item 1
+* list item 2
+** list item 2.1
+** list item 2.2
+*** list item 2.2.1
+*** list item 2.2.2
+* list item 3
+
+### Strong and EM tags
+
+strong **text** /
+emphasized *text* /
+
+### links and Images
+
+#### link
+
+The second word "link" in this sentence a [link](https://gist.github.com/tougshire/710f753d3d2f140eb3206946a5058bdd#file-markdownconverter-html)  to this file on github gist /
+
+#### Image
+
+![ tougshire logo ](https://avatars.githubusercontent.com/u/87095019?v=4)  /
+
+#### linked image
+
+[![ tougshire logo ](https://avatars.githubusercontent.com/u/87095019?v=4)](https://gist.github.com/tougshire/710f753d3d2f140eb3206946a5058bdd#file-markdownconverter-html) /
+
+### Comments
+
+Comments start below.  You shouldn't be able to see them in the render but should in an inspection)
+
+<!-- Single line comment *this should be between asterisks, not em tags * -->
+<!--
+	Multi-line comment.  
+# this should start with a hash symbol and not be converted
+-->
+
+End of Comments
+
+<!--
+***********************************************************************************************	
+***********************************************************************************************	
+-->
+`
+var headerContent=`
+# markdownConversion.html
+`
+var footerContent = `
+A Tougshire project by Benjamin Goldberg
+`
+
+</script>
+<script src="./markdownConverter.js"></script>
+<title>Markdown Conversion</title>
+</head>
+<body>
+<div id="header">
+</div>
+
+<div id="content">
+</div>
+
+<div id="footer">
+</div>
+<script>
+document.getElementById('header').innerHTML=renderMarkdown(headerContent)
+document.getElementById('content').innerHTML=renderMarkdown(content)
+document.getElementById('footer').innerHTML=renderMarkdown(footerContent)
+</script>
+</body>
+</html>
